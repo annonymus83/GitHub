@@ -76,8 +76,8 @@ ejemplo: git restored --staged archivo2
 En caso de que quiera descartar los cambios y que lo devuelva a mi lista ls escribo:
       git restore archivo2
 
-
-
+7) _touch archivoNuevo_     --> Nos permite crear un archivo nuevo con el nombre que 
+                                deseemos
 
 
 ***CONECTANDO CON GITHUB***:
