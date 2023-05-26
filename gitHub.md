@@ -133,7 +133,9 @@ Notar que en nuestra terminal nuestra rama se llama por defecto "master" entonce
 
 
 **REPOSITORIOS REMOTOS Y LOCALES**
+
 REMOTO : lo que se sube a gitHub ejemplo
+
 LOCAL : lo que se crea dentro de los comandos en git
 
 `git remote -v`  -> indica las conexiones remotas que tiene nuestro proyecto local
