@@ -115,4 +115,14 @@ SOLUCION : git push -u origin master
 
 //lo que hace este comando es crear una nueva rama en mi repositorio de github y sube mis archivos en esta nueva rama llamada "master". 
 
+**REPOSITORIOS REMOTOS Y LOCALES**
+REMOTO : lo que se sube a gitHub ejemplo
+LOCAL : lo que se crea dentro de los comandos en git
+
+_git remote -v_   -> indica las conexiones remotas que tiene nuestro proyecto local
+
+_git remote set-url origin urlDemiRepoRemota_   -> Para cambiar la URL de tu repositorio remoto en Git tan solo    
+                                  escribimos el siguiente código agregando la nueva dirección
+
+
 
