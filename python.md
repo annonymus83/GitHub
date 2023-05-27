@@ -50,6 +50,8 @@ publicados = True
 `f"{string/variable} {string2/variable2}"` :formateo de strings, cumple la misma funcion de concatenar 
 (solo que mas limpio). Ademas lo que esté entre {} podemos escribir la expresion que deseemos ej. variable[0] , 2+5..
 
+NOTA: `f"... {...} ..." ` la f es muy importante, para que funciones lo que este entre llaves{}
+
 METODOS SOBRE VARIABLES STRINGS
 `upper()`  :su funcion es pasar string/s a mayusculas. Ej: 
             _print(variable.upper())_
@@ -62,4 +64,63 @@ METODOS SOBRE VARIABLES STRINGS
 `title()`  :a cad string lo comvierte a un capitalize. (se usa de la misma forma que upper) 
 
 
+SECUENCIAS DE ESCAPE
+var = 'Quiero "entrecomillar" una variable' : puedo definir una var con comillas dentro de las comillas de 
+                                        esa manera
+
+**otra forma es**: "quiero \"entrecomillar\"" : \ me dice que lo q esta a mi derecha es un caracter
+
+### NUMEROS 
+TIPOS: Integer, Float
+
+ejemplos: n/t = Float.   Pero n//t = Int (me devuelve la parte entera)
+
+FUNCIONES
+Para utlizar mas variedad de funciones podemos importar un modulo: `import math`
+https://docs.python.org/es/3.10/library/ este link me lleva a todas las func. de math
+
+`round(x)` : redondea a un entero un float
+`abs(x)` :nos da el vbalor absoluto de x
+
+Ejemplos con `import.math`
+
+**print(math.ceil(x))**  ->nos lleva al numero sup entero mas cercano de x 
+
+**print(math.floor(x))** ->nos lleva al numero inferior entero mas cercano de x 
+
+**print(math.pox(b, p))**  ->eleva b a la n 
+
+**print(math.sqrt(x))**  -> raiz cuadrada de x
+
+INPUT----------------------------
+
+n1 = input("ingresa primer numero")
+n2 = input("ingresa primer numero")
+
+Aqui el input me indica que parametros de entrada voy a querer (ejecutar en la terminal y 
+ver lo que sucede)
+
+ejemplos:
+``` python
+n1 = input("ingresa primer numero")
+n2 = input("ingresa primer numero")
+
+n1 = int(n1)
+n2 = int(n2)
+
+suma = n1 + n2
+resta = n1 - n2
+multi = n1 * n2
+div = n1 / n2
+
+mensaje = f"""
+Para los numeros {n1} y {n2}
+el resultado de la suma es {suma}.
+el resultado de la resta es {resta}.
+el resultado de la multiplicacion es {multi}.
+el resultado de la division es {div}.
+"""
+
+print(mensaje)
+```
 
