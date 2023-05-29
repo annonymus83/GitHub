@@ -57,3 +57,58 @@ el resultado de la division es {div}.
 """
 
 print(mensaje)
+
+#tipos
+
+print(bool("")) # = false
+print(bool("0")) # true
+print(bool(None)) # = false
+print(bool(" ")) # = true
+print(bool(0)) # = false
+
+
+# sentencias condicionales
+edad = 60
+if edad > 17:
+    print("puede ver la pelicula")
+elif edad > 54:
+    print("puede ver la peli con descuento")
+else:
+    print("no puedes entrar")
+
+print("Listo")
+
+# operador ternario
+
+
+mensage = "Es mayor" if edad > 17 else "es menor"
+# edad = 15
+# if edad > 17:
+#     mensage = "es mayor" 
+# else:
+#     mensage = "es menor"
+
+print(mensage)
+
+#operadores logicos 
+
+gas = True
+encendido = True
+edad1 = 18
+
+if gas and encendido:
+    print("Puedes avanzar")
+
+#otro ejplo
+if not gas and (encendido or edad > 17):
+    print("Puedes avanzar")
+
+
+# cadena de comparadores 
+if edad >= 15 and edad <= 65:
+    print("puede entrar a la piscina")
+
+# otro caso
+if 15 <= edad <= 65:
+    print("puede entrar a la piscina")
+

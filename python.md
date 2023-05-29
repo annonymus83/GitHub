@@ -95,7 +95,7 @@ Ejemplos con `import.math`
 INPUT----------------------------
 
 n1 = input("ingresa primer numero")
-n2 = input("ingresa primer numero")
+n2 = input("ingresa segundo numero")
 
 Aqui el input me indica que parametros de entrada voy a querer (ejecutar en la terminal y 
 ver lo que sucede)
@@ -123,4 +123,99 @@ el resultado de la division es {div}.
 
 print(mensaje)
 ```
+
+### CONVERSION DE TIPOS
+int()
+float()
+str()
+bool() : se divide en 
+    Falsy : - "" (string vacio es false), - None (es false), - 0 (cero es false)
+
+    Truthy : todo es True si no es un Falsy
+
+## LOGICA PROPOSICIONAL 
+### COMPARADORES LOGICOS
+- < menor
+- > mayor
+- <= menor o igual
+- >= mayor o igual
+- == igualdad
+- !=  (not igual) o desigualdad
+
+**sentencias condicionales**
+
+- if (expresion):
+     bloque de instruc.Por SI CUMPLE con la expresion
+
+- elif (expresion1):
+     bloque de instruc.Por SI CUMPLE con la expresion1
+
+- else :
+       bloque de instruc.Por si NO CUMPLE con la expresion 
+
+NOTA: Elif son un monton de if's & puedes usar tantos como quieras, else 
+es solo al final & significa si nada entra entonces usa esto
+
+_ejemplo_
+``` python
+edad = 60
+if edad > 17:
+    print("puede ver la pelicula")
+elif edad > 54:
+    print("puede ver la peli con descuento")
+else:
+    print("no puedes entrar")
+
+print("Listo")
+
+```
+
+#### OPERADOR TERNARIO
+Forma mas corta de escribir una condicion
+``` python
+edad = 15
+mensaje = "Es mayor" if edad > 17 else "es menor"
+print(mensaje)
+```
+### OPERADORES LOGICOS
+
+* AND : p and q => True (si se cumple las dos prep)
+
+* OR : p or q => True (si se cumple una prep)
+
+* NOT : negacion
+
+EJEMPLO:
+``` python
+gas = True
+encendido = True
+edad1 = 18
+
+if gas and encendido:
+    print("Puedes avanzar")
+
+#otro ejplo
+if not gas and (encendido or edad > 17):
+    print("Puedes avanzar")
+
+```
+
+### CADENA DE COMPARADORES 
+Podemos escribir de una forma mas corta un if con comp.logicos
+__ejemplo:__
+``` python
+if edad >= 15 and edad <= 65:
+    print("puede entrar a la piscina")
+```
+otro caso: 
+``` python
+if 15 <= edad <= 65:
+    print("puede entrar a la piscina")
+```
+
+## ITERACION
+
+
+
+
 
