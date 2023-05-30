@@ -267,4 +267,113 @@ for j in range(3):  #---> outer for/loop luego se cumple este ciclo
 
 
 
+## FUNCIONES
+> Funcion:es un bloque de líneas de código o un conjunto de instrucciones cuya 
+finalidad es realizar una tarea específica.
+
+`**def**` : se utiliza para definir mi funcion, seguido del nombre de la funcion y 
+su bloque de instrucciones.
+
+Nota: para llamar a mi funcion solo escribo (en el editor) `nombreDelafuncion`
+
+Ejemplo:
+``` python
+def hola():
+    print("Hola Mundo")
+    print("Ultimate python")
+
+hola()
+```
+
+### PARAMETROS Y ARGUMENTOS
+
+>**Parametro** : son los valores que la función puede recibir. Estos parámetros se definen
+dentro de los paréntesis que van justo después de declarar el nombre de la función.
+
+>**Argumento** : se considera a los valores del parametro.
+
+ejemplo: 
+```python
+def holas(nombreDeUs):
+    print("Hola Mundo")
+    print(f"Bienvenido {nombreDeUs}")
+
+holas("Chanchito Feliz")
+```
+
+NOTA: si quiero mas paramtros simplemente lo agrego separandolo con comas
+: nombrefuncion( parametro1, parametro2)
+
+> Podemos Agregar valores por Defecto a mi parametro:
+
+``` python
+def hola(nombre, apellido="Feliz"):
+    print(f"Hola Mundo Bienvenido {nombre} {apellido}" )
+
+hola("Nico", "Schurmann")
+hola("Chanchito")
+```
+Consola: >> Hola Mundo Bienvenido Nico Schurmann
+            Hola Mundo Bienvenido Chanchito Feliz
+
+
+
+>**Arguemntos Nombrados** : En caso de que me olvide el orden los paramteros 
+de mi funcion puedo especificar el parametro de cada argumento sin importar 
+el orden de mi funcion.
+
+EJEMPLO:
+```python
+hola(apellido="Schurmann", nombre="Nico")
+```
+
+### X-ARGS
+Ayuda a que se pueda agregar la cantidad de argumento que queramos auna función,
+sin tener que agregar multiples parametros.
+Para Ello: mi parametro se convierte en un _iterable_ si le agrego un **"*"** adelante.
+
+
+EJEMPLO:
+```python
+def suma(*numeros):
+    resultado = 0
+    for numero in numeros:
+        resultado += numero
+    print(resultado)
+
+suma(2,5,7)
+suma(2,5)
+suma(2,8,7,45,32)
+```
+consola:>>  14   ,  7  , 94
+
+### RETURN
+> **Return**: termina la ejecución de una función y devuelve el control a la función de llamada.
+Puede devolver un valor a la función de llamada 
+
+EJEMPLO: quiero utilizar el res de una funcion para asignarlo a una variable.
+Nota: los return no imprimen nada en la terminal.
+
+```python
+def suma(a, b):
+    res = a + b
+    return res
+
+c = suma(1, 2)
+d = suma(c, 2)
+
+print(d)
+```
+
+### ALCANCE
+>**Local**: variables locales son aquellas definidas dentro de una función.
+Solamente son accesibles desde la propia función y dejan de existir cuando esta 
+termina su ejecución
+
+>**Global**: son aquellas vars. definidas en el cuerpo principal del programa 
+fuera de cualquier función. Son accesibles desde cualquier punto del programa, 
+incluso desde dentro de funciones. 
+
+### DEPURANDO FUNCIONES
+ 
 

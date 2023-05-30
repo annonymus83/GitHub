@@ -119,13 +119,13 @@ for numero in range(5):
 
 buscar = 3
 
-for numeros in range(5):
-    print(numeros)
-    if numeros == buscar:
-        print("encontrado", buscar)
-        break
-else:
-    print("no encontre nro buscado :(")
+# for numeros in range(5):
+#     print(numeros)
+#     if numeros == buscar:
+#         print("encontrado", buscar)
+#         break
+# else:
+#     print("no encontre nro buscado :(")
 
 for char in "Ultimate python":
     print(char)
@@ -138,5 +138,50 @@ while numero < 100:
 for j in range(3):
     for k in range(2):
         print(f"{j}, {k}")
-        
+
+#Funciones
+
+def hola():
+    print("Hola Mundo")
+    print("Ultimate python")
+
+hola()
+
+#Funciones con parametros y argumentos
+def holas(nombreDeUs):
+    print("Hola Mundo")
+    print(f"Bienvenido {nombreDeUs}")
+
+holas("Chanchito Feliz")
+            
+
+def hola1(Nombre, Apellido="Feliz"):
+    print("Hola Mundo")
+    print(f"Bienvenido {Nombre} {Apellido}" )
+
+hola1("nico", "Schurmann")
+hola1("Chanchito")
+
+# xars
+# def sumas(*numeros):
+#     resultado = 0
+#     for numero in numeros:
+#         resultado += numero
+#     print(resultado)
+
+# sumas(2,5,7)
+# sumas(2,5)
+# sumas(2,8,7,45,32)
+
+#Return
+def suma(a, b):
+    res = a + b
+    return res
+
+c = suma(1, 2)
+d = suma(c, 2)
+
+print(d)
+
+
 
