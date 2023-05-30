@@ -112,3 +112,31 @@ if edad >= 15 and edad <= 65:
 if 15 <= edad <= 65:
     print("puede entrar a la piscina")
 
+#iteracion
+
+for numero in range(5):
+    print(numero)
+
+buscar = 3
+
+for numeros in range(5):
+    print(numeros)
+    if numeros == buscar:
+        print("encontrado", buscar)
+        break
+else:
+    print("no encontre nro buscado :(")
+
+for char in "Ultimate python":
+    print(char)
+
+
+while numero < 100:
+    print(numero)
+    numero *= 2
+
+for j in range(3):
+    for k in range(2):
+        print(f"{j}, {k}")
+        
+

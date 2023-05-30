@@ -215,6 +215,55 @@ if 15 <= edad <= 65:
 
 ## ITERACION
 
+> **FOR**: se utiliza para iterar sobre una objeto iterable y ejecutar un bloque de código 
+para cada elemento en la secuencia de dicho objeto
+
+**For else**: por si no sucede el ciclo for
+
+¿que son iterables? que lo podemos recorrer usando un ciclo. Como
+* Listas
+* tuplas
+* numeros ( utilizando range(n) que de 0 a n-1)
+* Strings
+
+ejemplo basico
+``` python
+buscar = 3
+
+for numeros in range(5):
+    print(numeros)
+    if numeros == buscar:
+        print("encontrado", buscar)
+        break
+else:
+    print("no encontre nro buscado :(")
+
+for char in "Ultimate python":
+    print(char)
+```
+
+
+> **WHILE** : hace que se ejecute un bloque de código repetidamente 
+mientras una condición sea verdadera
+
+EJEMPLO:
+```python
+numero = 1
+
+while numero < 100:
+    print(numero)
+    numero *= 2
+```
+consola me devuelve: >> 1  , 2  , 4 , 8, 16 , 32 , 64
+
+**Loops anidados**: un for dentro de un for:
+ejemplo: 
+```python
+for j in range(3):  #---> outer for/loop luego se cumple este ciclo
+    for k in range(2):  #---> inner for/loop: primero se cumple este ciclo
+        print(f"{j}, {k}")
+```
+
 
 
 
