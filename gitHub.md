@@ -119,7 +119,7 @@ Notar que en nuestra terminal nuestra rama se llama por defecto "master" entonce
 
 `git checkout -b nameDeRamaNueva`  : crea una nueva rama
 
-`git branch nombreDeRama`    :Cambia a la rama que yo quiero utilizar.
+`git checkout nombreDeRama`    :Cambia a la rama que yo quiero utilizar.
 
 `git log --oneline`    :me da el historial de los cambios en mi rama
 
