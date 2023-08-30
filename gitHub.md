@@ -144,4 +144,5 @@ LOCAL : lo que se crea dentro de los comandos en git
                                   escribimos el siguiente código agregando la nueva dirección
 
 
-
+NOTA: git pull --rebase urlDemiRepoRemoto
+En lugar de utilizar git merge para integrar la rama remota en la local, usa git rebase. Me ayudo a actualizar los cambios de mi rama remota a la local y viceversa.
