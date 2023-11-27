@@ -146,3 +146,6 @@ LOCAL : lo que se crea dentro de los comandos en git
 
 NOTA: git pull --rebase urlDemiRepoRemoto
 En lugar de utilizar git merge para integrar la rama remota en la local, usa git rebase. Me ayudo a actualizar los cambios de mi rama remota a la local y viceversa.
+
+**¿Cómo eliminar un repositorio de Git creado con ‘git init’ en un directorio?**
+`rm -rf .git`
