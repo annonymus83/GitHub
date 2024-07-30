@@ -1,79 +1,102 @@
+# Primeros pasos en Git
+
+## ¿Que es GIT?
+Es un sistema de control de versiones CVS, utilizado para guardar el historial de cambios del codigo fuente .
+
+## ¿Qué es un Repositorio?
+Es un proyecto que contiene multiples archivos. Existen dos tipos d repos.:
+1. **Repositorios remotos**: el repo. se aloja en Linea (la nube), los principales servicios de alojamiento en GiT son GitHub (propiedad de Microsoft), Gitlab (prop. de GitLab), y BitBucket.
+2. **Repositorios locales**: el repo. se aloja Fuera de linea (auto-instalado en tu servidor).
+
+## Los tres Estados de Git
+Un archivo puede tener los siguientes estados:
+* **modified** (modificado): significa que se modificó el archivo pero no se ha confirmado en nuestra base de datos local.
+* **staged** (preparado): significa que has marcado un archivo modificado en su versión actual para que vaya en tu próxima confirmación.
+* **committed** (confirmado): significa que los datos se encuentran asegurados en nuestra base de datos local.
+
+Esto nos lleva a conocer las tres secciones principales de un proyecto de Git: 
+El directorio de Git (**Git directory**), el directorio de trabajo (**working directory**), y el área de preparación (**staging area**).
+
+![Flujo de trabajo de git](/images/areas.png)
+
+<img src="/images/areas.png" alt="200" width="200"/>
+
+## Instalación de Git
+
+**Windows**:
+
 Descargamos git en https://git-scm.com/downloads
+. Utilizaremos la terminal Git Bash (se descarga cuando instalamos git)
 
-Utilizaremos la terminal Git Bash (se descarga cuando instalamos git)
+Abrimos Git Bash:
+* **Verificamos instalación**: escribimos en la terminal `git --version` 
+* **Configuramos git**: escribimos lo siguiente en la terminal
+```Bash
+git config --global user.name nombreDeUsuarioejemplo
+git config --global user.email tuemail@gmail.com
+```
+( La opcion --global es para que la config se efectue de manera global y no por proyecto. y en user.name configuramos git con nuestro nombre el que queramos )
 
-1. Abrimos Git Bash
-2. escribimos en la terminal lo siguiente: `git --version` 
-(este nos mostrara el tipo de version q tenemos instalado)
-3. Luego vamos a comenzar con la configuracion para ello escribimos: `git config --global user.name nombreDeUsuarioejemplo`
-( La opcion --global es para que la config se efectue de manera global y no por proyecto. y en user.name configuramos git con nuestro nombre el q queramos )
-.
-4. escribimos: `git config --global user.email tuemail@gmail.com`
-(Listo, ya realizamos la congiguracion inicial)
+* **Configuar editor de texto**: con esto señalamos que VSCode es nuestro editor de texto por defecto. Wait sirve para q espere a que cerremos el editor. 
+```Bash
+git config --global core.editor "code --wait"
+``` 
 
-5. `git config --global core.editor "code --wait"` (esto sirve para configurar nuestro editor de texto VSCode, con esto señalamos q VSCode es nuestro editor de texto por defecto. Wait sirve para q espere a q cerremos el editor)
+* **Configuración finales de linea en archivos de texto**: Los finales de línea pueden variar entre sistemas operativos: Windows utiliza "CRLF" (carriage return + line feed) mientras que Linux y macOS utilizan "LF" (line feed).
+La configuración core.autocrlf en Git ayuda a manejar estas diferencias al clonar repositorios y hacer commits, para evitar problemas de compatibilidad y asegurarse de que los archivos se vean correctos en diferentes sistemas operativos. 
 
-6. Si quisieramos ver nuestro archivo de config global escribimos: `git config --global -e`     //esto nos llevara a VSCode y nos mostrara la config
+``` bash
+git config --global core.autocrlf true           #Para Windows
+git config --global core.autocrlf input          #Para Linux/Mac
+```      
 
-7. `git config --global core.autocrlf true`       (para Windows)
-   `git config --global core.autocrlf input`      (para Mac/Linux)
+Si quisieramos ver nuestro archivo de config global escribimos: `git config --global -e`     //esto nos llevara a VSCode y nos mostrara la config.
 
- DATO: `git config -h` (muestras opciones para la config)
+DATO: `git config -h` (muestras opciones para la config)
 
- COMANDOS BASICOS -- en la terminal
-1) `ls`  //muestra todas las carpetas/directorios que tenemos
+## Comandos básicos en la terminal
 
-2) `pwd`  //nos dice en q carpeta/directorio nos encontramos
-
-3) `cd nombreDeDirectorio`  //nos mueve a la carpeta seleccionada
-NOTA: puedo abrir una carpeta dentro de otra: cd Desktop/carpeta1
-Para salir de tal directorio: cd ..
-
-NOTA 2: ejemplo de abrir una carpeta dentro de otra en la terminal
-  cd Desktop
-  ls (me muestra q carpetas hay en Desktop como -- Carpeta1 y Carpeta2)
-  cd Carpeta1 (abre Carpeta1, y ahora estamos en Carpeta1)
-
-4) `mkdir nombreDirectorio`  (esta funcion crea una carpeta con el nombre que deseamos)
-
-5) `touch archivoNuevo`     --> Nos permite crear un archivo nuevo con el nombre que 
-                                deseemos
-
-6) `git init` (esto sirve para INICIALIZAR un repositorio dentro de la carpeta). Por ejemplo escribo: git init (luego presiono enter y me va a aparecer -> Initialized empty Git repository in C:/Users/Usuario/Desktop/Carpeta1/.git/   <-- .git me indica que este directorio esta oculto, no se mostrara lo q hay en .git si escribo ls. Pero si lo hara con "ls -a" >)
+1) `ls` : muestra todas las carpetas/directorios que tenemos
+2) `pwd` : nos dice en q carpeta/directorio nos encontramos
+3) `cd nombreDeDirectorio` : nos mueve a la carpeta seleccionada. Tambien podemos abrir una carpeta dentro de otra `cd Desktop/carpeta1`
+4) `cd ..` : salir de la carpeta
+5) `mkdir nombreDirectorio` : esta funcion crea una carpeta con el nombre que deseamos.
+6) `touch archivoNuevo` : Nos permite crear un archivo nuevo con el nombre que deseemos.
+7) `code .` : esto abre mi editor de texto (q por defecto es VSCode) dentro de la carpeta/directorio donde estoy
 
 
-### FLUJO DE TRABAJO CON GIT  
+## Flujo de trabajo con Git
 
-**git add** : cuando ejecutamos este comando, lo que haremos sera seleccionar los archivos que queramos pasar a la etapa Stage. En esta Etapa basicamente se considera los cambios/actualizaciones del archivo que queramos subir al repositorio (pero no se suben al repositorio).
+`git init` : INICIALIZA un repositorio dentro de la carpeta. Por ejemplo escribo: git init (luego presiono enter y me va a aparecer -> Initialized empty Git repository in C:/Users/Usuario/Desktop/Carpeta1/.git/   <-- .git me indica que este directorio esta oculto, no se mostrara lo que hay en .git si escribo ls. Pero si lo hara con "ls -a" >)
 
-**git commit** : sube el archivo en la etapa commit (es la etapa despues de stage, es decir confirma que quiero guardar este cambio para luego pasarlo al repo).
+`git add nombreDeArchivo` : cuando ejecutamos este comando, lo que haremos sera seleccionar los archivos que queramos pasar a la etapa Stage. En esta Etapa basicamente se considera los cambios/actualizaciones del archivo que queramos subir al repositorio (pero no se suben al repositorio).
 
-OTROS COMANDOS:
-En Git Bash escribo lo siguiente:
+`git commit -m "mensaje entre comillas"` : sube el archivo en la etapa commit (es la etapa despues de stage, es decir confirma que quiero guardar este cambio para luego pasarlo al repo).
 
-1. `code .`  //esto abre mi editor de texto (q por defecto es VSCode) dentro de la carpeta/directorio donde estoy
 
-2. `git status`  //no muestra el estado actual de nuestro repositorio "Untracked files:" me muestra los archivos q no se subieron (o puedo subir)
-
-3. `git add nombreDeArchivo` 
-//con este comando preparo el archivo a subir a mi repositorio
-Luego puedo verificar el estado de mi repo. con git status , nos aparecera algo como "Changes to be committed:" ahi me muestra los archivos en etapa de Stage.
+`git status` : nos muestra el estado actual de nuestro repositorio (como los archivos que no se subieron o a subir)
 
 NOTA: para subir mas de un archivo escribimos por ejemplo: *git add archivo1 archivo2*    //respetando los espacios
 En caso de modificar un archivo como archivo2 (es decir hicimos cambios del codigo desde VScode), tendremos que **actualizar** estos cambios a mi etapa stage => vuelvo a escribir: *git add archivo2*
 
-4. `git commit -m "mensaje entre comillas"`  //esto es para confirmar los cambios a subir.
 
-5) `rm nombreDeArchivo`  //rm es un comando q sirve para eliminar un archivo
+`rm nombreDeArchivo` : rm es un comando que sirve para eliminar un archivo
 ejemplo: rm archivo2
-         git status  //verifico su estado y me aparece "deleted:  archivo2"
-         git add archivo2  //lo paso a la etapa Stage
-         git commit -m "eliminar archivo 2" //esto elimina el archivo2 de todas las etapas (stage y commit)
 
-**otra forma** mas corta es: git rm archivo2
-                             git commit -m "eliminar archivo 2"
-                             
-6) si quiero restaurar un archivo a eliminar que pase a la etapa Stage (justo antes de comitear) utilizo:
+```bash
+git status  #verifico su estado y me aparece "deleted:  archivo2"
+git add archivo2  #lo paso a la etapa Stage
+git commit -m "eliminar archivo 2" #esto elimina el archivo2 de todas las etapas (stage y commit)
+
+```
+
+**otra forma** mas corta es: 
+```bash
+git rm archivo2
+git commit -m "eliminar archivo 2"
+```
+
+Si quiero restaurar un archivo a eliminar que pase a la etapa Stage (justo antes de comitear) utilizo:
  
 `git restored --stage nombreArchivo`
 
@@ -81,7 +104,7 @@ ejemplo: git restored --staged archivo2
 En caso de que quiera descartar los cambios y que lo devuelva a mi lista ls escribo:
       git restore archivo2
 
-7. `git push`  :sube lo commiteado al repo. remoto
+7. `git push`  : sube lo commiteado al repositorio remoto.
 
 
 ## ***CONECTANDO CON GITHUB***:
