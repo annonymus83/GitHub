@@ -143,7 +143,7 @@ En Github tenemos dos formas de subir nuestro repositorio local al remoto, es de
 
 ### Formas de hacer PUSH 
 
-#### Mediante una clave Token
+#### MEDIANTE UNA CLAVE TOKEN
 
 1. Primero debemos crearnos una clave Token. Para ello entramos a nuestro GitHub y:
     - Desde el icono de nuestra cuenta seleccionamos la opcion settings.
@@ -179,7 +179,7 @@ Password for 'https://ejemplo@gmail.com': contraseñaToken  #copiamos el Token q
 
 Luego Enter y Listo! , el codigo se subio al repo. remoto.
 
-#### Mediante Claves SSH
+#### MEDIANTE CLAVES SSH
 
 Ideal para trabajar en computadoras fijas (aquellas a las que más frecuentas). Describire los pasos que podemos seguir en Linux, para mas información sobre generar una nueva clave ssh en Mac o Windows lo podemos encontrar [aqui](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
@@ -188,7 +188,70 @@ Ideal para trabajar en computadoras fijas (aquellas a las que más frecuentas). 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
-2.  
+
+2. Enter y nos devuelve:
+```bash
+> Generating public/private ALGORITHM key pair.
+> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):
+```
+teclea Enter para aceptar la ubicación de archivo predeterminada. 
+Si ya creaste claves SSH anteriormente, ssh-keygen puede pedirte que vuelvas a escribir otra clave. En este caso, se recomienda crear una clave SSH con nombre personalizado. Para ello, escribe la ubicación de archivo predeterminada y reemplaza id_ALGORITHM por el nombre de clave personalizado.
+
+3. Luego nos pedira una contraseña (es importante no perder esta contraseña):
+
+```bash
+> Enter passphrase (empty for no passphrase): .... 
+> Enter same passphrase again: ....
+```
+
+**Agregar clave SSH al ssh-agent**
+
+1. Iniciamos el agente ssh. Copia y pega los siguiente en tu terminal
+```bash
+$ eval "$(ssh-agent -s)"
+```
+Enter Y nos devuelve
+```bash
+> Agent pid 59566
+```
+
+2. Agrega tu llave privada SSH al ssh-agent. Si has creado tu clave con otro nombre o si vas a agregar una clave existente que tiene otro nombre, reemplaza id_ed25519 en el comando por el nombre de tu archivo de clave privada.
+
+```bash
+ssh-add ~/.ssh/id_ed25519
+```
+
+**Agregar clave pública de SSH a GitHub**
+
+Entramos a nuestra cuenta de github 
+
+1. Click en `Settings` ->  `SSH and GPG keys`  ->  `New SSH key`
+2. Completamos Title con un nombre descriptivo (por ejemplo la maquina en la estara conectado), en **Key Type** dejamos como 
+*'Authentication Key'*. Para llenar **Key** es necesario seguir los siguientes pasos:
+    - Abrimos una terminal donde se haya tu clave ssh y escribimos
+    ```
+    cat ~/.ssh/id_ed25519.pub
+    ```
+    Enter y copia tu llave ssh pública al portapapeles.
+    Si tu archivo de llave SSH pública tiene un nombre diferente que en el código de ejemplo, modifica el nombre de archivo para que coincida con tu configuración actual. Al copiar tu clave, no agregues líneas nuevas o espacios en blanco.
+
+    - Pega tu clave pública en el campo **Key**
+    - Click en **Add SSH key** y Listo!
+
+
+**Hacer PUSH**
+
+Para este caso NO Usaremos el HTTPS de nuestro repo. sino el **SSH**.
+    
+* Si es la primera vez que agregas este repo remoto escribimos
+```
+git remote add origin git@github.com:ejemplo 
+```
+
+* Si no lo es podemos cambiar el enlace del repo remoto:
+```
+git remote set-url origin git@github.com:ejemplo
+```
 
 
 ## RAMAS EN GIT o BRANCHES
