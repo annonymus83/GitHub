@@ -5,4 +5,5 @@ Este repositorio esta dedicado al aprendizaje de conceptos básicos y utiles par
 Indice
 --
 * [Primeros Pasos en Git](/gitHub.md)
-* [Pyhton](/intro.py)
+* [Pyhton](/Lenguajes/python.md)
+* [SQL](/Lenguajes/sql.md)
