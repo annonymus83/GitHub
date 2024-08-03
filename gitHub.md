@@ -77,6 +77,7 @@ DATO: `git config -h` (muestras opciones para la config)
 5) **`mkdir nombreDirectorio`** : esta funcion crea una carpeta con el nombre que deseamos.
 6) **`touch archivoNuevo`** : Nos permite crear un archivo nuevo con el nombre que deseemos.
 7) **`code .`** : esto abre mi editor de texto (q por defecto es VSCode) dentro de la carpeta/directorio donde estoy
+8) **`cat nameArchivo`** : me muestra el contenido de un archivo.
 
 
 ## Flujo de trabajo con Git
@@ -136,69 +137,87 @@ Luego **`git push`** para subir los cambios al repositorio remoto.
 ## CONECTANDO CON GITHUB:
 
 1. Creamos una cuenta en GITHUB
-
 2. Luego creamos un repositorio dentro de github.
 
-      En la terminal **Git Bash** hacemos lo siguiente:
 
-1. Una vez tengamos commiteado los archivos que queremos subir al repo. remoto escribimos:
+En Github tenemos dos formas de subir nuestro repositorio local al remoto, es decir dos formas de hacer push. Para ello es necesario que tengamos commiteado los archivos que queramos subir al repositorio remoto.
+
+### Formas de hacer PUSH 
+
+#### Mediante una clave Token
+
+1. Primero debemos crearnos una clave Token. Para ello entramos a nuestro GitHub y:
+    - Desde el icono de nuestra cuenta seleccionamos la opcion settings.
+    - Luego bajamos y presionamos "<> Developer settings" 
+    - pincho en "Personal access tokens" 
+    - luego en "Personal access tokens (classic)" -> "Generate new Token" -> "Generate new Token (classic)" 
+    - en "note" escribimos el nombre que quiera ponerle a mi token y en "Select scopes" selecciono la opcion "repo" 
+    - Por ultimo bajo y pincho en "Generate Token" y Listo utilizaremos esta clave más adelante.
+
+NOTA: este token dura 30dias o mas depende de la opcion que elijamos a la hora de crearla
+
+2. Agregamos un nuevo repositorio remoto con el siguiente comando:
 
 ```Bash
 git remote add origin https://github.com/ejemplo  #este link lo encontramos en  [<> Code]
 ```
+Aqui se define una nueva conexión a un repositorio remoto y la etiqueta con el nombre "origin" (origin es de ejemplo).
+Se usa cuando no hay un remoto llamado "origin" configurado previamente.
 
-2. Siguiente a eso:
+3. Siguiente a eso, si es la primera vez que haces push escribimos:
 
 ```bash
 git push -u origin main      #main es la rama por defecto creada en nuestro repo. remoto
 ```
+Donde -u (o --set-upstream) establece una relación de seguimiento entre la rama local main y la rama remota main. Si ya has utilizado este comando con hacer `git push` es suficiente.
 
-      Presiono Enter, y nos aparece:
 
-      Username for 'https://github.com': NombreDeUsuarioDeGit  //luego ENTER
-      Password for 'https://ejemplo@gmail.com': contraseñaToken  //esta contraseñaToken lo conseguimos desde nuestra cuenta GITHUB 
+Presiono Enter, y nos aparece:
+```bash
+Username for 'https://github.com': NombreDeUsuarioDeGit    #luego ENTER
+Password for 'https://ejemplo@gmail.com': contraseñaToken  #copiamos el Token que genreamos en el paso 1) 
+```
 
-      1)Desde el icono de nuestra cuenta seleccionamos la opcion settings .2)Luego bajamos y presionamos "<> Developer settings" 3) pincho en "Personal access tokens" 4) luego en "Personal access tokens (classic)" -> "Generate new Token" -> "Generate new Token (classic)" 5) en "note" escribimos el nombre que quiera ponerle a mi token y en "Select scopes" selecciono la opcion "repo" 6) Por ultimo bajo y pincho en "Generate Token"  7) copio el token y lo reemplazo en "constraseñaToken" (de la terminal)
+Luego Enter y Listo! , el codigo se subio al repo. remoto.
 
-      NOTA: este token dura 30dias o mas depende de la opcion q elijamos a la hora de crearla
+#### Mediante Claves SSH
 
-3. Enter y Listo! , el codigo se subio al repo.
+Ideal para trabajar en computadoras fijas (aquellas a las que más frecuentas). Describire los pasos que podemos seguir en Linux, para mas información sobre generar una nuvea clave ssh en Mac o Windows lo podemos encontrar [aqui](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
+1. Crear una clave ssh localmente, abrimos una terminal y escribimos lo siguiente reemplazando el correo por tu correo de github:
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+2.  
 
 
 ## RAMAS EN GIT o BRANCHES
-Notar que en nuestra terminal nuestra rama se llama por defecto "master" entonces en mi caso el paso 4. de ***CONECTANDO CON GITHUB*** no me funciono. (Esto pasa porque por defecto de github nuestra rama del repo se llama "main")
+Comandos basicos sobre ramas de git.
 
 **`git branch`** : me dice en que rama me encuentro, y cuales hay.
 
-`git checkout -b nameDeRamaNueva`  : crea una nueva rama
+**`git checkout -b nuevaRama`** : crea una nueva rama
 
-`git checkout nombreDeRama`    :Cambia a la rama que yo quiero utilizar.
+**`git checkout nombreDeRama`** : Cambia a la rama que yo quiero utilizar.
 
-`git log --oneline`    :me da el historial de los cambios en mi rama
+**`git log --oneline`** : me da el historial de los cambios en mi rama
 
-`cat nameArchivo`    :me muestra el contenido de un archivo.
+**`git merge nombreOtraRama`** :sirve para pasar los cambios de otra rama a mi rama principal (debo situarme ahi)
 
-`git merge nombreOtraRama`   :sirve para pasar los cambios de otra rama a mi rama principal (debo situarme ahi)
+**`git branch -d nombreRamaAEliminar`** : elimina de forma local una rama (para ello debemos situarnos en otra rama)
 
-`git branch -d nombreRamaAEliminar`   :elimina de forma local una rama (para llo debemos situarno en otra rama)
-
-`git push origin --delete nombreRamaAEliminar`  :sube los cambios al repo.remoto     
+**`git push origin --delete nombreRamaAEliminar`** : sube los cambios al repo.remoto     
 
 
-**REPOSITORIOS REMOTOS Y LOCALES**
+## Funciones utiles entre repos locales y remotos
 
-REMOTO : lo que se sube a gitHub ejemplo
+**`git remote -v`** : indica las conexiones remotas que tiene nuestro proyecto local.
 
-LOCAL : lo que se crea dentro de los comandos en git
-
-`git remote -v`  -> indica las conexiones remotas que tiene nuestro proyecto local
-
-`git remote set-url origin urlDemiRepoRemota`   -> Para cambiar la URL de tu repositorio remoto en Git tan solo    
-                                  escribimos el siguiente código agregando la nueva dirección
+**`git remote set-url origin urlDemiRepoRemota`** : Para cambiar la URL de tu repositorio remoto en Git tan solo escribimos el siguiente código agregando la nueva dirección. Esto se lo utiliza cuando la url de nuestro repo remoto cambia o queremos cambiar su destinario.
 
 
 NOTA: git pull --rebase urlDemiRepoRemoto
 En lugar de utilizar git merge para integrar la rama remota en la local, usa git rebase. Me ayudo a actualizar los cambios de mi rama remota a la local y viceversa.
 
-**¿Cómo eliminar un repositorio de Git creado con ‘git init’ en un directorio?**
-`rm -rf .git`
+`rm -rf .git` : eliminar un repositorio de Git creado con ‘git init’ en un directorio (elimina un repo local)
