@@ -210,7 +210,7 @@ Si ya creaste claves SSH anteriormente, ssh-keygen puede pedirte que vuelvas a e
 ```bash
 $ eval "$(ssh-agent -s)"
 ```
-Enter Y nos devuelve
+    Enter Y nos devuelve
 ```bash
 > Agent pid 59566
 ```
