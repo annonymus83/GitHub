@@ -23,9 +23,7 @@ Esto nos lleva a conocer las tres secciones principales de un proyecto de Git:
 
 **staging area** (área de preparación) : generalmente contenido en tu directorio de Git, que almacena información acerca de lo que va a ir en tu próxima confirmación.
 
-<!-- ![Flujo de trabajo de git](/images/areas.png) -->
-
-<img src="/images/areas.png" alt="500" width="500"/>
+<img src="/images/areas.png" alt="600" width="600"/>
 
 ### Flujo de trabajo basico en GIT
 
@@ -97,6 +95,7 @@ Comandos basicos de GIT.
 
 NOTA: para subir mas de un archivo escribimos por ejemplo: `git add archivo1 archivo2`
 En caso de modificar un archivo como archivo2 (es decir hicimos cambios del codigo desde VScode), tendremos que actualizar estos cambios a mi etapa stage => vuelvo a escribir: `git add archivo2`
+Para subir todos los archivos => `git add -A` (esto sube todos los archivos que no estan subidos o sufrieron modificaciones)
 
 
 ### Eliminar en git
@@ -175,14 +174,14 @@ Donde -u (o --set-upstream) establece una relación de seguimiento entre la rama
 Presiono Enter, y nos aparece:
 ```bash
 Username for 'https://github.com': NombreDeUsuarioDeGit    #luego ENTER
-Password for 'https://ejemplo@gmail.com': contraseñaToken  #copiamos el Token que genreamos en el paso 1) 
+Password for 'https://ejemplo@gmail.com': contraseñaToken  #copiamos el Token que generamos en el paso 1) 
 ```
 
 Luego Enter y Listo! , el codigo se subio al repo. remoto.
 
 #### Mediante Claves SSH
 
-Ideal para trabajar en computadoras fijas (aquellas a las que más frecuentas). Describire los pasos que podemos seguir en Linux, para mas información sobre generar una nuvea clave ssh en Mac o Windows lo podemos encontrar [aqui](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+Ideal para trabajar en computadoras fijas (aquellas a las que más frecuentas). Describire los pasos que podemos seguir en Linux, para mas información sobre generar una nueva clave ssh en Mac o Windows lo podemos encontrar [aqui](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 1. Crear una clave ssh localmente, abrimos una terminal y escribimos lo siguiente reemplazando el correo por tu correo de github:
 
@@ -212,9 +211,11 @@ Comandos basicos sobre ramas de git.
 
 ## Funciones utiles entre repos locales y remotos
 
-**`git remote -v`** : indica las conexiones remotas que tiene nuestro proyecto local.
+`git pull` : Actualiza mi repositorio local con los datops del repo remoto.
 
-**`git remote set-url origin urlDemiRepoRemota`** : Para cambiar la URL de tu repositorio remoto en Git tan solo escribimos el siguiente código agregando la nueva dirección. Esto se lo utiliza cuando la url de nuestro repo remoto cambia o queremos cambiar su destinario.
+`git remote -v` : indica las conexiones remotas que tiene nuestro proyecto local.
+
+`git remote set-url origin urlDemiRepoRemota` : Para cambiar la URL de tu repositorio remoto en Git tan solo escribimos el siguiente código agregando la nueva dirección. Esto se lo utiliza cuando la url de nuestro repo remoto cambia o queremos cambiar su destinario.
 
 
 NOTA: git pull --rebase urlDemiRepoRemoto
