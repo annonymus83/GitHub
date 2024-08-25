@@ -132,6 +132,14 @@ git commit -m "elimino miCarpeta"
 ```
 Luego **`git push`** para subir los cambios al repositorio remoto.
 
+## Renombrar un archivo
+Para cambiar el nombre de un archivo y guardar los cambios en git localmente escribimos:
+
+```bash
+git mv antiguo_nombre.txt nuevo_nombre.txt
+```
+Lo commiteamos, y lo pusheamos para guardar los cambios en el repo remota.
+
 
 ## CONECTANDO CON GITHUB:
 
